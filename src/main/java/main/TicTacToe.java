@@ -7,6 +7,29 @@ public static int[][] ticbox;
 	public static int win(int [][]tic) {
 		//check all rows
 		//loop through rows from 0 to 3 and check if all the 3 places have same marks
+		int f=0;
+ 		for(int i=0;i<3;i++)
+ 		{
+ 			if((ticbox[i][0]==ticbox[i][1])&&(ticbox[i][1]==ticbox[i][2]))
+ 			{
+ 				f=ticbox[i][0];
+ 				break;
+ 			}	
+ 		}
+ 		for(int i=0;i<3;i++)
+ 		{
+ 			if((ticbox[0][i]==ticbox[1][i])&&(ticbox[1][i]==ticbox[2][i]))
+ 			{
+ 				f=ticbox[0][i];
+ 				break;
+ 			}
+ 		}
+ 		if((ticbox[0][0]==ticbox[1][1])&&(ticbox[1][1]==ticbox[2][2]))
+ 			f=ticbox[1][1];
+ 		if((ticbox[0][2]==ticbox[1][1])&&(ticbox[1][1]==ticbox[2][0]))
+ 			f=ticbox[1][1];
+ 		
+ 			return f;
  		
 		
 		//check all cols
@@ -20,7 +43,7 @@ public static int[][] ticbox;
 		
 		
 		
-		return 0;
+		
 		
 	}
 	
@@ -33,14 +56,9 @@ public static int[][] ticbox;
 		}
 	}
 	public static boolean validate(int a1,int a2,int [][] tic) {
-		//check if a1 is between 0 & 3
-		//check if a2 is between 0 & 3
-		//check if the selected box is empty ie, already not marked by other player
-		//if all checks passed return true.
 		
-		
-		//Write your code here !!!
-		
+		 if(((a1>=0)&&(a1<3))&&((a2>=0)&&(a2<3))&&(ticbox[a1][a2]!=1))
+			 return true;
 		
 		return false;
 	}
